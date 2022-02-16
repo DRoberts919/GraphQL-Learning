@@ -15,7 +15,11 @@ const root = {
       firstName: "Dylan",
       lastName: "Roberts",
       gender: "male",
-      email: "email@email.com",
+      email: [
+        { email: "email@email.com" },
+        { email: "emailTWO@email.com" },
+        { email: "emailTHREE@email.com" },
+      ],
     };
   },
 };
