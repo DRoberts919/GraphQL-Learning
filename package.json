@@ -1,0 +1,30 @@
+{
+  "name": "graphql-learning",
+  "version": "1.0.0",
+  "description": "Linked in learning on GraphQL to implement into other projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DRoberts919/GraphQL-Learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DRoberts919/GraphQL-Learning/issues"
+  },
+  "homepage": "https://github.com/DRoberts919/GraphQL-Learning#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.8.0",
+    "nodemon": "^2.0.15"
+  }
+}
