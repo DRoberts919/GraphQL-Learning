@@ -1,6 +1,7 @@
-const { buildSchema } = require("graphql");
+const {makeExecutableSchema} = require("@graphql-tools/schema");
+const resolvers = require("./resolvers");
 
-const schema = buildSchema(`
+const typeDefs = `
     type Friend {
         id: ID
         firstName: String
@@ -47,6 +48,8 @@ const schema = buildSchema(`
     type Mutation{
         createFriend(input:FriendInput): Friend
     }
-`);
+`;
+
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 module.exports = schema;
