@@ -8,7 +8,6 @@ app.get("/", (req, res) => {
   res.send("GraphQL project");
 });
 
-
 app.use(
   "/graphql",
   graphqlHTTP({
