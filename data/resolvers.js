@@ -15,7 +15,6 @@ const resolvers = {
       return new Friend(id, friendDB(id));
     },
   },
-
   Mutation: {
     createFriend: async (root, { input }) => {
       console.log(input);
@@ -34,8 +33,9 @@ const resolvers = {
         console.log("connected");
 
         const saveFriend = await collection.insertOne(newFriend);
+        console.log(saveFriend);
         const returnedData = await collection.findOne({
-          _id: saveFriend.insertedId[1],
+          _id: saveFriend.insertedId,
         });
         console.log(returnedData);
         return returnedData;
