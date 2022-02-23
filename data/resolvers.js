@@ -1,4 +1,4 @@
-const { MongoClient, objectId } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 //mongo Connections
 const URL =
@@ -39,6 +39,44 @@ const resolvers = {
         });
         console.log(returnedData);
         return returnedData;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
+    updateFriend: async (root, { input }) => {
+      await client.connect();
+
+      try {
+        const getFriend = await collection.findOneAndUpdate(
+          { _id: new ObjectId(input.id) },
+          {
+            $set: {
+              age: input.age,
+            },
+          }
+        );
+        // client.close();
+        console.log(getFriend);
+
+        const getUpdatedData = await collection.findOne({
+          _id: getFriend.value._id,
+        });
+
+        return getUpdatedData;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+
+    deleteFriend: async (root, { id }) => {
+      await client.connect();
+
+      try {
+        const getFriend = await collection.findOneAndDelete({
+          _id: new ObjectId(id),
+        });
+        return "succesfully deleted friend";
       } catch (err) {
         console.log(err);
       }
